@@ -1,0 +1,82 @@
+ <% layout('/layout/boilerplate.ejs') -%>
+<body>
+    <h1>Edit post</h1>
+    <form method="post" action="/listings/<%=post[0]._id%>/edit?_method=patch" class="needs-validation" enctype="multipart/form-data" novalidate >
+        <div class="mb-3"> 
+        <label class="form-label" for="title"  >title</label>
+        <textarea class="form-control" name="title" id="title" required><%= post[0].title %></textarea>
+        <div class="invalid-feedback">Enter valid title</div> </div>
+        <div class="mb-3"> 
+        <label class="form-label" for="description">description</label>
+        <textarea class="form-control" name="description" id="description" required><%= post[0].description %></textarea>
+         <div class="invalid-feedback">Enter valid description</div> </div>
+         <div class="listingImage">Original Listing image<br>      
+            <img src="<%=originalImageUrl%>" height="200px" width="200px" alt="original listing image">
+         </div>
+        <div class="mb-3"> 
+        <label class="form-label" for="image">upload image </label>
+        <input type="file" class="form-control" name="image" id="image" >
+         Category:
+    <div class="row">
+      <div class="mb-3 col-2">
+         <label   for="Trending">Trending</label>
+         <input   type="checkbox" id="Trending" name="category" value="Trending">
+      </div>
+      <div class="mb-3 col-2">
+         <label  for="Rooms">Rooms</label>
+         <input  type="checkbox" id="Rooms" name="category" value="Rooms">
+            
+      </div>
+      <div class="mb-3 col-2">
+         <label  for="Cities">Iconic cities</label>
+         <input  type="checkbox" id="Cities" name="category" value="Iconic cities">
+      </div>
+      <div class="mb-3 col-2">
+         <label  for="Mountains">Mountains</label>
+         <input  type="checkbox" id="Mountains" name="category" value="Mountains">
+            
+      </div>
+      <div class="mb-3 col-2">
+         <label  for="Beach">Beach</label>
+         <input  type="checkbox" id="Beach" name="category" value="Beach">
+            
+      </div>
+      </div>
+      <div class="row"> 
+      <div class="mb-3 col-2">
+         <label  for="Castles">Castles</label>
+         <input  type="checkbox" id="Castles" name="category" value="Castles">
+            
+      </div>
+      <div class="mb-3 col-2">
+         <label  for="Pool">Pool</label>
+         <input  type="checkbox" id="Pool" name="category" value="Pool">
+            
+      </div>
+      <div class="mb-3 col-2">
+         <label  for="Camping">Camping</label>
+         <input  type="checkbox" id="Camping" name="category" value="Camping">
+            
+      </div>
+      <div class="mb-3 col-2">
+         <label  for="Farms">Farms</label>
+         <input  type="checkbox" id="Farms" name="category" value="Farms">
+            
+      </div>
+      <div class="mb-3 col-2">
+         <label  for="Snow">Snow</label>
+         <input  type="checkbox" id="Snow" name="category" value="Snow">
+            
+      </div>
+    </div>
+        <div class="mb-3"> 
+        <label class="form-label" for="price">price</label>
+        <input class="form-control" type="number" id="price" name="price"  value="<%= post[0].price %>"  required>
+         <div class="invalid-feedback">Enter valid price</div> </div>
+        
+        <button class="btn btn-outline-primary special">submit</button>
+    </form> <br>
+    <a href="/listings " class="btn btn-outline-secondary special" >back</a>
+    <br><br>
+</body>
+ 
