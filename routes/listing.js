@@ -3,11 +3,11 @@ let router=express.Router();
 let multer=require('multer');
 let {storage}=require('../cloudConfig.js');
 let upload=multer({storage});
-let wrapAsync=require('C:/Users/ADMIN/OneDrive/Desktop/vsforjava/major_project/utils/wrapAsync.js');
-let {listingSchema,reviewSchema}=require('C:/Users/ADMIN/OneDrive/Desktop/vsforjava/major_project/schema.js');
-let ExpressError=require('C:/Users/ADMIN/OneDrive/Desktop/vsforjava/major_project/utils/ExpressError.js');
+let wrapAsync=require('../utils/wrapAsync.js');
+let {listingSchema,reviewSchema}=require('../schema.js');
+let ExpressError=require('../utils/ExpressError.js');
 let  listingControl=require('../controller/listing.js')
-let listing=require('C:/Users/ADMIN/OneDrive/Desktop/vsforjava/major_project/models/listing.js');
+let listing=require('../models/listing.js');
     let {isLoggedin,isOwner}=require('../middleware.js')
 let validateListing=(req,res,next)=>{
     let {error}=listingSchema.validate(req.body);
