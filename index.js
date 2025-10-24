@@ -4,7 +4,7 @@ if(process.env.NODE_ENV!='production'){
 
 let express=require('express');
 let app=express();
-let port=8080;
+let port=process.env.PORT || 3000;
 let ExpressError=require('./utils/ExpressError.js');
 let path=require('path');
 let ejsMate=require('ejs-mate');
@@ -71,4 +71,4 @@ app.use((err,req,res,next)=>{
     let {status=408 ,message='Something went wrong'.toUpperCase()}=err;
      // res.status(status).render( "error.ejs",{message});
 })
-app.listen(port,'0.0.0.0',()=>{console.log("server Listening...")})
+app.listen(port,()=>{console.log("server Listening...")})
