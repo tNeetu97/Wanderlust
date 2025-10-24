@@ -51,6 +51,11 @@ app.use((req,res,next)=>{
      res.locals.currUser=req.user;
      next()
 })
+app.listen(port,'0.0.0.0',()=>{console.log(`server Listening...${port}`)})
+//root
+app.get('/',(req,res)=>{
+     res.redirect('/listings')
+})
 //for listings
 let listingRouter=require('./routes/listing.js')
 app.use('/listings',listingRouter)
@@ -62,7 +67,7 @@ let userRouter=require('./routes/user.js')
 app.use('/',userRouter)
 //filter
 let filterRouter=require('./routes/filter.js')
-app.use('/filter',filterRouter);
+app.use('/',filterRouter);
 //error
 app.use((req,res,next)=>{
      throw new ExpressError(404,'page not found');
@@ -71,4 +76,3 @@ app.use((err,req,res,next)=>{
     let {status=408 ,message='Something went wrong'.toUpperCase()}=err;
      // res.status(status).render( "error.ejs",{message});
 })
-app.listen(port,'0.0.0.0',()=>{console.log("server Listening...")})
