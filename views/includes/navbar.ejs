@@ -9,7 +9,15 @@
     color:white;
     border-radius: 2rem;
   }
-  
+  @media only screen and (max-width: 767px){
+    .nav-link{
+     background-color:white;
+    width:10rem;
+    color: rgba(0,0,0,0.7) !important;
+    padding-left: 1rem;
+    justify-self:end;
+  }
+  } 
 </style>
 <nav class="navbar navbar-expand-md bg-body- light border-bottom sticky-top">
   <div class="container-fluid">
@@ -17,7 +25,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"  >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse"  id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link " href="/listings">Home</a>
       </div>

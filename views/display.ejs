@@ -1,5 +1,13 @@
 <% layout('/layout/boilerplate.ejs') -%>
 <body >
+  <style>
+    .review-card{
+      justify-content: center;
+    }
+    .review-body{
+      justify-items: center;
+    }
+  </style>
  <div class="card listing-card" style="max-width: 40rem; justify-self:center;"  >
   <h4 class="card-title"><b> <%=   post[0].title %></b> </h4> 
   <img src=" <%=post[0].image.url %>" class="card-img-top" style="height: 20rem; " alt="image">
@@ -47,10 +55,10 @@
      <%}%>
     <%if(post[0].reviews.length>0){%>
       <p><b>All Reviews</b></p>
-    <div class="row"> 
+    <div class="row review-card"> 
     <%for(review of post[0].reviews){%>
-    <div class="card col-5 m-4"  >
-      <div class="card-body">
+    <div class="card  col-8 m-4"  >
+      <div class="card-body review-body">
         <h5 class="card-title">@<%=review.author.username%></h5>
         <p class="starability-result card-text" data-rating="<%=review.rating%>"> </p>
         <p class="card-text"><%=review.createdAt.toString().split(' ').slice(0,4).join(' ') %></p>

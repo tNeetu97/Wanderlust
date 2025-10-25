@@ -2,10 +2,12 @@
 <body>
      <style>
       #filters{
-         display: flex;
+         display: flex !important;
          margin-right:2rem;
          
+         
       }
+
       .filter{
          margin-left:2rem ;
          text-align:center;
@@ -16,7 +18,20 @@
          text-decoration: none;
          color:black;
       }
+      .cfilter{
+          margin-left:1rem ;
+         text-align:center;
+         opacity:0.6;
+      }
+      .cfilter a{
+         text-decoration: none;
+         color:black;
+      }
       .filter:hover{
+         opacity:1;
+         cursor:pointer;
+      }
+      .cfilter:hover{
          opacity:1;
          cursor:pointer;
       }
@@ -31,8 +46,110 @@
           align-content: center;
           align-self: center;
       }
+      #categoryBar{
+         border:1px solid black;
+          height:3rem;
+          width:3rem ;
+          border-radius:50%;
+          padding:0 2px;
+          align-content: center;
+          align-self: center;
+      }
+      @media only screen and (max-width: 767px){
+         .filter{
+            display:none;
+         }
+         #categoryBar{
+            display:inline;
+            margin-left:1rem ;
+         } 
+         #filters{
+            padding: 1rem 0 1rem 0;
+         }
+      
+      }
+@media only screen and (min-width:768px) {
+   #categoryBar{
+      display:none !important;
+   }
+}
      </style>
      <div id="filters">
+          <button   id="categoryBar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft"><i class="fa-solid fa-layer-group fa-xl"></i></button>
+
+<div class="offcanvas offcanvas-start" style="width: 200px;" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasLeftLabel">Category</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" >
+        <div class="cfilter mt-2">
+        <a href="/filter/trending"> <div class="icon"><i class="fa-solid fa-fire fa-xl"></i></div>
+         <p> Trending  </p></a>
+      </div>
+      <div class="cfilter mt-2">
+         <a href="/filter/rooms">
+                  <div class="icon">  <i class="fa-solid fa-bed fa-xl "></i></div>
+                  <p> Rooms</p>
+         </a>
+      </div>
+         <div class="cfilter mt-2">
+            <a href="/filter/iCities">
+                <div class="icon"> <i class="fa-solid fa-city fa-xl"></i></div>
+         <p>Iconic cities</p>
+            </a>
+         
+      </div>
+      <div class="cfilter mt-2">
+         <a href="/filter/mountains">
+            <div class="icon">  <i class="fa-solid fa-mountain-sun fa-xl"></i></div>
+         <p>Mountains</p>
+         </a>
+          
+      </div>
+       <div class="cfilter mt-2">
+         <a href="/filter/beach">
+            <div class="icon"> <i class="fa-solid fa-umbrella-beach fa-xl"></i></div>
+         <p>Beach</p>
+         </a>
+          
+      </div>
+      <div class="cfilter mt-2">
+         <a href="/filter/castles">
+             <div class="icon"> <i class="fa-solid fa-chess fa-xl"></i> </div>
+         <p>Castles </p>
+         </a>
+   
+      </div>
+      <div class="cfilter mt-2">
+         <a href="/filter/pool">
+            <div class="icon"><i class="fa-solid fa-person-swimming fa-xl"></i>  </div>
+         <p>Pool</p>
+         </a>
+          
+      </div>
+      <div class="cfilter mt-2">
+         <a href="/filter/camping">
+            <div class="icon"><i class="fa-solid fa-route fa-xl"></i>  </div>
+         <p>Camping</p>
+         </a>
+          
+      </div>
+      <div class="cfilter mt-2">
+         <a href="/filter/farms">
+            <div class="icon"><i class="fa-solid fa-cow fa-xl"></i>  </div>
+         <p>Farms</p>
+         </a>
+      </div>
+        <div class="cfilter mt-2">
+         <a href="/filter/snow">
+            <div class="icon"><i class="fa-solid fa-snowflake  fa-xl"></i>  </div>
+         <p>Snow</p>
+         </a>
+          
+      </div>
+  </div>
+</div>
       <div class="filter mt-2">
         <a href="/filter/trending"> <div class="icon"><i class="fa-solid fa-fire fa-xl"></i></div>
          <p> Trending  </p></a>
@@ -98,6 +215,7 @@
          </a>
           
       </div>
+    
       <div class="switch-toggle ms-auto">
          <div class="form-check-reverse form-switch ">
   <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckDefault">
